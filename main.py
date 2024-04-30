@@ -28,3 +28,34 @@ def saveNotes():
         json.dump(notes, file)
 
 
+# основной код программы
+notes = []
+
+while True:
+    
+    print(" \n Меню:")
+    print("1. Создать заметку")
+    print("2. Просмотреть все заметки")
+    print("3. Редактировать заметку")
+    print("4. Удалить заметку")   
+    print("5. Отбор заметок по дате")
+    print("6. Выход \n")
+
+    choice = input("Выберите действие:  ")
+    
+    if choice == "1":
+        creatNote()
+    elif choice == "2":
+        readNotes()
+    elif choice == "3":
+        editNote()
+    elif choice == "4":
+        deletNote()
+    elif choice == "5":
+        filterNotes()
+    elif choice == "6":
+        break
+    else:
+        print("Некорректный выбор. Попробуйте снова.")
+
+
