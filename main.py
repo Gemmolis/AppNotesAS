@@ -1,3 +1,5 @@
+import json
+
 # Функция для создания заметки
 
 def creatNote():
@@ -15,6 +17,14 @@ def creatNote():
     }
     notes.append(note) #добавляет один аргумент  в конец списка
 
-    save_notes()
+    saveNotes()
     
     print("Заметка успешно создана")
+
+    # Определяем функцию для сохранения заметок в файл
+
+def saveNotes():
+    with open("notes.json", "w") as file:
+        json.dump(notes, file)
+
+
