@@ -1,7 +1,7 @@
 import json
+import os
 import datetime
 from datetime import datetime 
-import os
 
 # Функция для создания заметки
 
@@ -24,16 +24,11 @@ def creatNote():
     
     print("Заметка успешно создана")
 
-    # Определяем функцию для сохранения заметок в файл
-
-def saveNotes():
-    with open("notes.json", "w") as file:
-        json.dump(notes, file)
-
+    
 # определяем функцию для чтения всех заметок
-def readNotes():
+def read_notes():
     for note in notes:
-        print(f"ID: {note['id']}; Заголовок: {note['title']}; Текст: {note['body']}; Дата: {note['date']} ")
+     print(f"ID: {note['id']}; Заголовок: {note['title']}; Текст: {note['body']}; Дата: {note['date']} ")
 
 # Определяем функцию для редактирования заметки
 def editNote():
@@ -74,6 +69,11 @@ def deletNote():
     else:
         print("Заметка с указанным ID не найдена.")
         
+# Определяем функцию для сохранения заметок в файл
+
+def saveNotes():
+    with open("notes.json", "w") as file:
+        json.dump(notes, file)
 
 # Определяем функцию для загрузки заметки из файла
 def loadNotes():
@@ -115,7 +115,7 @@ while True:
     if choice == "1":
         creatNote()
     elif choice == "2":
-        readNotes()
+        read_notes()
     elif choice == "3":
         editNote()
     elif choice == "4":
