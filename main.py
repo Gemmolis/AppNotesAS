@@ -1,6 +1,7 @@
 import json
 import datetime
 from datetime import datetime 
+import os
 
 # Функция для создания заметки
 
@@ -72,10 +73,28 @@ def deletNote():
         print(" \n Заметка успешно удалена")
     else:
         print("Заметка с указанным ID не найдена.")
+        
+
+# Определяем функцию для загрузки заметки из файла
+def loadNotes():
+    if os.path.exists("notes.json"):
+        with open("notes.json", "r") as file:
+            notes.extend(json.load(file))
 
 
+# Определяем фильтрацию по дате заметки
+def filterNotes():
+    datum = str(input("Введите дату заметки для поиска в формате дд.мм.гггг ==> "))
+    filteredNotes = []
+    
+    for note in notes:
+        if note["date"] == datum:
+            filteredNotes.append(note)
+                     
 
-
+    for note in filteredNotes:
+                
+        print(f"ID: {note['id']}; Заголовок: {note['title']}; Текст: {note['body']}; Дата: {note['date']} ")
 
 
 # основной код программы
