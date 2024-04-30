@@ -1,4 +1,6 @@
 import json
+import datetime
+from datetime import datetime 
 
 # Функция для создания заметки
 
@@ -26,6 +28,13 @@ def creatNote():
 def saveNotes():
     with open("notes.json", "w") as file:
         json.dump(notes, file)
+
+# определяем функцию для чтения всех заметок
+def readNotes():
+    for note in notes:
+        print(f"ID: {note['id']}; Заголовок: {note['title']}; Текст: {note['body']}; Дата: {note['date']} ")
+
+
 
 
 # основной код программы
