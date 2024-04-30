@@ -26,7 +26,7 @@ def creatNote():
 
     
 # определяем функцию для чтения всех заметок
-def read_notes():
+def readNotes():
     for note in notes:
      print(f"ID: {note['id']}; Заголовок: {note['title']}; Текст: {note['body']}; Дата: {note['date']} ")
 
@@ -100,6 +100,9 @@ def filterNotes():
 # основной код программы
 notes = []
 
+# загружаем заметки из файла
+loadNotes()
+
 while True:
     
     print(" \n Меню:")
@@ -115,7 +118,7 @@ while True:
     if choice == "1":
         creatNote()
     elif choice == "2":
-        read_notes()
+        readNotes()
     elif choice == "3":
         editNote()
     elif choice == "4":
