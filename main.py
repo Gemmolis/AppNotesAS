@@ -57,6 +57,25 @@ def editNote():
     else: 
         print("Заметка с указанным ID не найдена.")
 
+#  определяем функцию для удаления заметки
+def deletNote():
+    noteId = int(input("Введите ID заметки, которую необходимо удалить ==> "))
+    noteIndex = -1
+
+    for index, note in enumerate(notes):
+        if note["id"] == noteId:
+            noteIndex = index
+            break
+    if noteIndex != -1:
+        del notes[noteIndex]
+        saveNotes()
+        print(" \n Заметка успешно удалена")
+    else:
+        print("Заметка с указанным ID не найдена.")
+
+
+
+
 
 
 # основной код программы
