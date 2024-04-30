@@ -34,6 +34,28 @@ def readNotes():
     for note in notes:
         print(f"ID: {note['id']}; Заголовок: {note['title']}; Текст: {note['body']}; Дата: {note['date']} ")
 
+# Определяем функцию для редактирования заметки
+def editNote():
+    noteId = int(input("Введите ID заметки, которую необходимо отредактировать  ==> "))
+    noteIndex = -1
+
+    for index, note in enumerate(notes):
+        if note["id"] == noteId:
+            noteIndex = index
+            break
+
+    if noteIndex != -1:
+        noteTitle = input("Введите новый заголовок заметки:  ")
+        noteBody = input("Введите новый текст заметки:  ")
+
+        notes[noteIndex]["title"] = noteTitle
+        notes[noteIndex]["body"] = noteBody
+        notes[noteIndex]["date"] = datetime.now().strftime("%d.%m.%Y")
+
+        saveNotes()
+        print("Заметка успешно изменена  ==> ")
+    else: 
+        print("Заметка с указанным ID не найдена.")
 
 
 
